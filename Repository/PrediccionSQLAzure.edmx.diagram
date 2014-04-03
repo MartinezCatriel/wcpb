@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f67331c4be142f89c1d37cebb0c497a" Name="Diagram1">
+        <EntityTypeShape EntityType="PredictionSQLModel.Equipo" Width="1.5" PointX="7.625" PointY="29.5" />
+        <EntityTypeShape EntityType="PredictionSQLModel.Partido" Width="1.5" PointX="14.875" PointY="26.125" />
+        <EntityTypeShape EntityType="PredictionSQLModel.PartidoEquipo" Width="1.5" PointX="14.75" PointY="29.125" />
+        <EntityTypeShape EntityType="PredictionSQLModel.Usuario" Width="1.5" PointX="8.875" PointY="23" />
+        <EntityTypeShape EntityType="PredictionSQLModel.UsuarioPrediccion" Width="1.5" PointX="7.375" PointY="20.125" />
+        <AssociationConnector Association="PredictionSQLModel.FK_Partido_Equipo" />
+        <AssociationConnector Association="PredictionSQLModel.FK_PartidoEquipo_ToEquipo" />
+        <AssociationConnector Association="PredictionSQLModel.FK_PartidoEquipo_ToPartido" />
+        <AssociationConnector Association="PredictionSQLModel.FK_UsuarioPrediccion_ToPartido" />
+        <AssociationConnector Association="PredictionSQLModel.FK_UsuarioPrediccion_ToUsuario" />
+        <AssociationConnector Association="PredictionSQLModel.FK_UsuarioPrediccion_ToEquipo" />
+        <EntityTypeShape EntityType="PredictionSQLModel.Animal" Width="1.5" PointX="11.125" PointY="23.125" />
+        <EntityTypeShape EntityType="PredictionSQLModel.PartidoAnimalPonderado" Width="1.5" PointX="13.5" PointY="22.875" />
+        <AssociationConnector Association="PredictionSQLModel.FK_PartidoAnimalPonderado_ToAnimal" />
+        <AssociationConnector Association="PredictionSQLModel.FK_PartidoAnimalPonderado_ToPartido" />
+        <AssociationConnector Association="PredictionSQLModel.UsuarioAnimal" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

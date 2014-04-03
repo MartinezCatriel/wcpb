@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PredictionSQLModelStoreContainer" CdmEntityContainer="PredictionSQLEntities">
+    <EntitySetMapping Name="Equipo">
+      <EntityTypeMapping TypeName="PredictionSQLModel.Equipo">
+        <MappingFragment StoreEntitySet="Equipo">
+          <ScalarProperty Name="NombreExtendido" ColumnName="NombreExtendido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partido">
+      <EntityTypeMapping TypeName="PredictionSQLModel.Partido">
+        <MappingFragment StoreEntitySet="Partido">
+          <ScalarProperty Name="IdEquipoGanador" ColumnName="IdEquipoGanador" />
+          <ScalarProperty Name="Ponderado" ColumnName="Ponderado" />
+          <ScalarProperty Name="Geolocalizacion" ColumnName="Geolocalizacion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartidoEquipo">
+      <EntityTypeMapping TypeName="PredictionSQLModel.PartidoEquipo">
+        <MappingFragment StoreEntitySet="PartidoEquipo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+          <ScalarProperty Name="IdPartido" ColumnName="IdPartido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="PredictionSQLModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+          <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Procedencia" ColumnName="Procedencia" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioPrediccion">
+      <EntityTypeMapping TypeName="PredictionSQLModel.UsuarioPrediccion">
+        <MappingFragment StoreEntitySet="UsuarioPrediccion">
+          <ScalarProperty Name="IdEquipoGanador" ColumnName="IdEquipoGanador" />
+          <ScalarProperty Name="Predecido" ColumnName="Predecido" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdPartido" ColumnName="IdPartido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

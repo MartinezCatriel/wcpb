@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PrediccionesSQL.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PrediccionesSQLStoreContainer">
+    <EntitySet Name="Animal" EntityType="PrediccionesSQL.Store.Animal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Equipo" EntityType="PrediccionesSQL.Store.Equipo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Partido" EntityType="PrediccionesSQL.Store.Partido" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartidoEquipo" EntityType="PrediccionesSQL.Store.PartidoEquipo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="PrediccionesSQL.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioAnimal" EntityType="PrediccionesSQL.Store.UsuarioAnimal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioPrediccion" EntityType="PrediccionesSQL.Store.UsuarioPrediccion" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_PartidoEquipo_ToEquipo" Association="PrediccionesSQL.Store.FK_PartidoEquipo_ToEquipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="PartidoEquipo" EntitySet="PartidoEquipo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartidoEquipo_ToPartido" Association="PrediccionesSQL.Store.FK_PartidoEquipo_ToPartido">
+      <End Role="Partido" EntitySet="Partido" />
+      <End Role="PartidoEquipo" EntitySet="PartidoEquipo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioAnimal_Animal" Association="PrediccionesSQL.Store.FK_UsuarioAnimal_Animal">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="UsuarioAnimal" EntitySet="UsuarioAnimal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioAnimal_Usuario" Association="PrediccionesSQL.Store.FK_UsuarioAnimal_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioAnimal" EntitySet="UsuarioAnimal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioPrediccion_ToEquipo" Association="PrediccionesSQL.Store.FK_UsuarioPrediccion_ToEquipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="UsuarioPrediccion" EntitySet="UsuarioPrediccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioPrediccion_ToPartido" Association="PrediccionesSQL.Store.FK_UsuarioPrediccion_ToPartido">
+      <End Role="Partido" EntitySet="Partido" />
+      <End Role="UsuarioPrediccion" EntitySet="UsuarioPrediccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioPrediccion_ToUsuario" Association="PrediccionesSQL.Store.FK_UsuarioPrediccion_ToUsuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioPrediccion" EntitySet="UsuarioPrediccion" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Partido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Geolocalizacion" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Ponderado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartidoEquipo">
+    <Key>
+      <PropertyRef Name="IdPartido" />
+      <PropertyRef Name="IdEquipo" />
+    </Key>
+    <Property Name="IdPartido" Type="int" Nullable="false" />
+    <Property Name="IdEquipo" Type="int" Nullable="false" />
+    <Property Name="Goles" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="600" />
+    <Property Name="Procedencia" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Token" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioAnimal">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdAnimal" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdAnimal" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioPrediccion">
+    <Key>
+      <PropertyRef Name="IdPartido" />
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdEquipo" />
+    </Key>
+    <Property Name="IdPartido" Type="int" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdEquipo" Type="int" Nullable="false" />
+    <Property Name="Goles" Type="int" Nullable="false" />
+    <Property Name="Predecido" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PartidoEquipo_ToEquipo">
+    <End Role="Equipo" Type="PrediccionesSQL.Store.Equipo" Multiplicity="1" />
+    <End Role="PartidoEquipo" Type="PrediccionesSQL.Store.PartidoEquipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartidoEquipo">
+        <PropertyRef Name="IdEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartidoEquipo_ToPartido">
+    <End Role="Partido" Type="PrediccionesSQL.Store.Partido" Multiplicity="1" />
+    <End Role="PartidoEquipo" Type="PrediccionesSQL.Store.PartidoEquipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partido">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartidoEquipo">
+        <PropertyRef Name="IdPartido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioAnimal_Animal">
+    <End Role="Animal" Type="PrediccionesSQL.Store.Animal" Multiplicity="1" />
+    <End Role="UsuarioAnimal" Type="PrediccionesSQL.Store.UsuarioAnimal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioAnimal">
+        <PropertyRef Name="IdAnimal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioAnimal_Usuario">
+    <End Role="Usuario" Type="PrediccionesSQL.Store.Usuario" Multiplicity="1" />
+    <End Role="UsuarioAnimal" Type="PrediccionesSQL.Store.UsuarioAnimal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioAnimal">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioPrediccion_ToEquipo">
+    <End Role="Equipo" Type="PrediccionesSQL.Store.Equipo" Multiplicity="1" />
+    <End Role="UsuarioPrediccion" Type="PrediccionesSQL.Store.UsuarioPrediccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioPrediccion">
+        <PropertyRef Name="IdEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioPrediccion_ToPartido">
+    <End Role="Partido" Type="PrediccionesSQL.Store.Partido" Multiplicity="1" />
+    <End Role="UsuarioPrediccion" Type="PrediccionesSQL.Store.UsuarioPrediccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partido">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioPrediccion">
+        <PropertyRef Name="IdPartido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioPrediccion_ToUsuario">
+    <End Role="Usuario" Type="PrediccionesSQL.Store.Usuario" Multiplicity="1" />
+    <End Role="UsuarioPrediccion" Type="PrediccionesSQL.Store.UsuarioPrediccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioPrediccion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
