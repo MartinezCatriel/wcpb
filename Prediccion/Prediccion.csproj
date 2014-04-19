@@ -43,10 +43,8 @@
     <Compile Include="AnimalCreator.cs" />
     <Compile Include="Equipo.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Leon.cs" />
     <Compile Include="Partido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pulpo.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioPrediccion.cs" />
   </ItemGroup>

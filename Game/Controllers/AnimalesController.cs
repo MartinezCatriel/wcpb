@@ -17,7 +17,7 @@ namespace Game.Controllers
         {
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
             var animales = new List<Animal>();
-            animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Leon, 1, "leon choton"));
+            animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Canguro, 1, "leon choton"));
             animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Pulpo, 2, "pulpo paul"));
             response.Content = new ObjectContent(typeof(List<Animal>), animales, new JsonMediaTypeFormatter()); // new StringContent("{equipoid:1, equiponombre:argentina}");
             return response;
@@ -36,7 +36,7 @@ namespace Game.Controllers
 
 
             var animales = new List<Animal>();
-            animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Leon, 1, "leon choton"));
+            animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Canguro, 1, "leon choton"));
             animales.Add(AnimalCreator.GetAnimalInstanceByType(TipoAnimal.Pulpo, 2, "pulpo paul"));
 
             Animal an = (from a in animales where a.Id == Convert.ToInt32(id) select a).FirstOrDefault();

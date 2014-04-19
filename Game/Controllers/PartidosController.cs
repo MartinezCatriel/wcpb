@@ -72,6 +72,11 @@ namespace Game.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Partidos y predicciones del usuario, devuelve el partido aunque el usuario no lo haya predicho
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <returns></returns>
         public HttpResponseMessage Get(int idUsuario)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
@@ -120,6 +125,12 @@ namespace Game.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Devuelve solamente los partidos que haya predicho
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="onlyuser"></param>
+        /// <returns></returns>
         public HttpResponseMessage Get(int idUsuario, bool onlyuser)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);

@@ -46,3 +46,11 @@ C:\Users\Nancy\Desktop\dif\world_cup_predictions_backend\Repository\bin\Debug\En
 C:\Users\Nancy\Desktop\dif\world_cup_predictions_backend\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
 C:\Users\Nancy\Desktop\dif\world_cup_predictions_backend\Repository\obj\Debug\Repository.dll
 C:\Users\Nancy\Desktop\dif\world_cup_predictions_backend\Repository\obj\Debug\Repository.pdb
+C:\Users\casa\Desktop\wcpb\Repository\bin\Debug\Repository.dll.config
+C:\Users\casa\Desktop\wcpb\Repository\bin\Debug\Repository.dll
+C:\Users\casa\Desktop\wcpb\Repository\bin\Debug\Repository.pdb
+C:\Users\casa\Desktop\wcpb\Repository\bin\Debug\EntityFramework.dll
+C:\Users\casa\Desktop\wcpb\Repository\bin\Debug\EntityFramework.xml
+C:\Users\casa\Desktop\wcpb\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+C:\Users\casa\Desktop\wcpb\Repository\obj\Debug\Repository.dll
+C:\Users\casa\Desktop\wcpb\Repository\obj\Debug\Repository.pdb
